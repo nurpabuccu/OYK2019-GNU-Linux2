@@ -76,7 +76,7 @@ Docker container çalıştırılıp parametrik olarak içinde bir program çalı
 
 Eğer `docker info` ile storage driver'a bakarsanız default olarak overlay2 olarak geldiğini görebilirsiniz. Örneğin birden fazla container bir ana imajı kullanıyor diyelim. Ana imaj üstünde bir değişiklik yapıldığında container için ayrı bir imaj oluşturulur, değişiklik yapmayan containerlar aynı imajı kullanmaya devam ederler. Böylelikle aynı kök imaj tekrar tekrar kopyalanmayıp bir kez oluşturulup kullanılıyor buda hem hız hem da daha az sistem kaynağı (depolama) kullanılmasını sağlıyor.
 
-## Donanum Sanallaştırma
+## Donanım Sanallaştırma
 
 Önce sisteminizde donanım sanallaştırma desteğinin açık olup olmadığını kontrol edeceğiz.
 
