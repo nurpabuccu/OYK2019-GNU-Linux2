@@ -1,6 +1,6 @@
 ## Docker
 
-Docker, containerlar kullanılarak uygulamaları oluşturmayı, dağıtmayı ve çalıştırmayı sağlayan bir araç. Docker LXC gibi tamamen izole bir sistem sunmak yerine yalnızca çalıştırılacak uygulamayı izole eder. Docker başta LXC tabanlı olarak çalışıyor LXC'nin cgroup çağrılarını kullanırken sonradan kendi özlleştirilmiş cgroup implementasyonunu geliştirdi.
+Docker, containerlar kullanılarak uygulamaları oluşturmayı, dağıtmayı ve çalıştırmayı sağlayan bir araç. Docker LXC gibi tamamen izole bir sistem sunmak yerine yalnızca çalıştırılacak uygulamayı izole eder. Docker başta LXC tabanlı olarak çalışırken LXC'nin cgroup çağrılarını kullanırken sonradan kendi özelleştirilmiş cgroup implementasyonunu geliştirdi.
 
 ### Docker Daemon (Docker Engine)
 
@@ -78,7 +78,7 @@ Eğer `docker info` ile storage driver'a bakarsanız default olarak overlay2 ola
 
 ## Donanım Sanallaştırma
 
-Önce sisteminizde donanım sanallaştırma desteğinin açık olup olmadığını kontrol edeceğiz.
+Önce sistemde donanım sanallaştırma desteğinin açık olup olmadığı kontrol edilmeli.
 
 `$ grep -E "vmx|svm" /proc/cpuinfo` -> Komut çıktı üretiyorsa sanallaştırma etkindir
 
@@ -103,7 +103,7 @@ KVM'i kurduğunuz hostta nested virtualization'un desteklendiğini kontrol etmek
 
 Eğer destekleniyorsa Y veya 1, desteklenmiyorsa N veya 0 çıktısını göreceksiniz.
 
-Sanal makinenin disk olarak göreceği bir alana ihtiyacı var. Bunun için bir sanal disk imaju gerekir.
+Sanal makinenin disk olarak göreceği bir alana ihtiyacı var. Bunun için bir sanal disk imajı gerekir.
 
 Disk image : Dosya, ama sanal makinelerdeki işletim sistemleri bu dosyayı bir block device (bir disk gibi) gibi kullanabiliyor.
 
@@ -113,7 +113,7 @@ Disk image : Dosya, ama sanal makinelerdeki işletim sistemleri bu dosyayı bir 
 
 `$ du -hs disk.img` -> Dosyanın diskte kapladığı alanı gösterir
 
-Bu imaj sanal makine oluşturulduğunda host makinede direkt 2GB yer kaplayacak. Fakat biz diske yazıldığı kadar yer kaplaması için CoW imaj oluşturabiliriz.
+Bu imaj sanal makine oluşturulduğunda host makinede direkt 2GB yer kaplayacak. Fakat biz diske yazıldığı kadar yer kaplaması için CoW (Copy on Write) imaj oluşturabiliriz.
 
 `$ sudo qemu-img create disk.img 2G -f qcow2`
 
